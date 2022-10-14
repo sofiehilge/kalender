@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="assets/manifest.json">
+    <title>Kalender</title>
+
+    <script>
+        if ("serviceWorker in navigator"){
+            window.addEventListener("load", function(){
+                navigator.serviceWorker.register("service-worker.js")
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalender</h1>
+        <button id="add-new-btn">Opret event</button>
+        <form action="" id="add-new-form">
+            <input type="text" name="" id="new-title" placeholder="Begivenhed" required pattern="[æÆøØåÅ a-åA-Å0-9]+"><!-- det gør at man kun kan skrive disse tegn -->
+            <input type="date" name="" id="new-text" placeholder="Dato" pattern="[æÆøØåÅ a-zA-Z0-9]+">
+            <input type="submit" value="OK">
+        </form>
+        <hr><!-- horisontal row -->
+        <ul id="tasks">
+            <!-- li er rykket ind i javascrips, fordi på den måde skal bruger selv skrive i listen -->
+        </ul>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
